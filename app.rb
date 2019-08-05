@@ -16,8 +16,13 @@ get "/fenton" do
   "is really cool"
 end
 
-get "/cat" do
-  "<div>
-        <img src='http://bit.ly/1eze8aE' style='border: dashed red;'>
-        </div>"
+get "/random-cat" do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get "/named-cat" do
+  @random_number = rand(1...5)
+  @name = params[:name]
+  erb(:index)
 end
